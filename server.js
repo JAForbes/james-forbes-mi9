@@ -11,7 +11,7 @@ function respond(req, res, next){
 
 function invalidJSON(error, req, res, next) {
 	error instanceof SyntaxError ?
-		res.json({ "error": "Could not decode request: JSON parsing failed" })
+		res.status(400).json({ "error": "Could not decode request: JSON parsing failed" })
 	:
 		next()
 }
